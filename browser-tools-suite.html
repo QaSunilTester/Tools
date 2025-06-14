@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browser Tools Suite</title>
-    <!-- Include libraries via CDN -->
+    <title>Privacy Tools Suite - 100% Offline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #4361ee;
@@ -37,6 +36,7 @@
             min-height: 100vh;
             padding: 20px;
             color: var(--dark);
+            overflow-x: hidden;
         }
 
         .container {
@@ -66,6 +66,18 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
+        }
+
+        .privacy-banner {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .app-container {
@@ -428,6 +440,10 @@
                 border-radius: 10px;
                 border: 2px solid #e2e8f0;
             }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
         }
 
         @media (min-width: 901px) {
@@ -453,6 +469,15 @@
             header h1 {
                 font-size: 2.2rem;
             }
+            
+            .tool-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
         }
 
         footer {
@@ -466,9 +491,17 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-toolbox"></i> Browser Tools Suite</h1>
-            <p>All-in-one toolkit that works completely offline in your browser - no server required</p>
+            <h1><i class="fas fa-user-shield"></i> Privacy Tools Suite</h1>
+            <p>All-in-one offline browser tools — 100% private, no tracking, no data leaves your device</p>
         </header>
+        
+        <div class="privacy-banner">
+            <i class="fas fa-lock fa-2x"></i>
+            <div>
+                <h3>Your Privacy is Protected</h3>
+                <p>All tools run completely in your browser - no data is sent to any server. Works offline without internet access.</p>
+            </div>
+        </div>
         
         <select class="mobile-tool-select" id="mobileToolSelect">
             <option value="image-pdf">Image to PDF</option>
@@ -815,7 +848,7 @@
                             </div>
                         </div>
                         
-                        <div class="timer-display" id="timerDisplay">05:00</div>
+                        <div class="timer-display" id="timerDisplay">00:05:00</div>
                         
                         <div class="timer-controls">
                             <button class="btn btn-success" id="startTimerBtn">
@@ -857,7 +890,8 @@
         </div>
         
         <footer>
-            <p>Browser Tools Suite &copy; 2023 | All processing happens locally in your browser - no data is sent to any server</p>
+            <p>Privacy Tools Suite &copy; 2023 | All processing happens locally in your browser - no data is sent to any server</p>
+            <p>Works completely offline - no internet required</p>
         </footer>
     </div>
 
@@ -1331,7 +1365,7 @@
             timerHours.value = '0';
             timerMinutes.value = '5';
             timerSeconds.value = '0';
-            timerDisplay.textContent = '05:00';
+            timerDisplay.textContent = '00:05:00';
             timerDisplay.style.color = '';
             pauseTimerBtn.disabled = false;
         }
